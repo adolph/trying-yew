@@ -2,6 +2,7 @@ use yew::prelude::*;
 
 enum Msg {
     AddOne,
+    DropOne,
 }
 
 struct App {
@@ -22,6 +23,10 @@ impl Component for App {
                 self.value += 1;
                 true
             }
+            Msg::DropOne => {
+                self.value -= 1;
+                true
+            }
         }
     }
 
@@ -30,6 +35,7 @@ impl Component for App {
             <div>
                 <button onclick={ctx.link().callback(|_| Msg::AddOne)}>{ "+1" }</button>
                 <p>{ self.value }</p>
+                <button onclick={ctx.link().callback(|_| Msg::DropOne)}>{ "+1" }</button>
             </div>
         }
     }
